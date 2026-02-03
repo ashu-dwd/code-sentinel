@@ -6,8 +6,10 @@ import {
 } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { Separator } from "@radix-ui/react-separator";
+import { requireAuth } from "@/modules/auth/utils/auth-utils";
 
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
+  await requireAuth();
   return (
     <SidebarProvider>
       <AppSidebar />
